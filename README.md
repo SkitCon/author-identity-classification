@@ -34,7 +34,7 @@ This network is adapted from simple facial recognition systems which use dual en
 
 Once the dual encoder is fine-tuned, the distance fine-tuned model is frozen and added to the pipeline of the final model. In the final model, sentences are fed through both the frozen dual encoder architecture and another DistilBERT model to generate semantic sentence embeddings for a final linear layer which takes the distance embeddings and semantic embeddings as input and 6 engineered features (discussed below) as input. This model is trained with binary cross-entropy loss, but the distance embeddings are frozen to retain the style embedding space. The architecture diagram is shown below:
 
-<img src="architecture_diagram.png" alt="An architecture diagram showing my approach to the class competition" width="400" style="display: block; margin-left: auto; margin-right: auto; width: 50%;"/>
+<img src="architecture_diagram.png" alt="An architecture diagram showing my approach to the class competition" width="600" style="display: block; margin-left: auto; margin-right: auto; width: 50%;"/>
 
 Both models are trained with mini-batch gradient descent with an Adam optimizer. The dual encoder was trained with 20 epochs and a batch size of 32. The main layer was trained with 5 epochs and a batch size of 16. To deal with class imbalance and overfitting, the positive class was given a weight of 4.0 in the BNE loss calculation and weight decay was set 0.01.
 
