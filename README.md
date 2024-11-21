@@ -22,7 +22,7 @@ My approach to this task was to create a dual encoder[^1] architecture where eac
 
 For this dual encoder architecture, I use contrastive loss as defined below:
 
-$\mathcal{L}_{\operatorname{contrastive}}(D, y) = (1 - y) \cdot (D + 1)^{2} + y \cdot \operatorname{max}(D - 1)^{2}$
+$\mathcal{L}_{\text{contrastive}}(D, y) = (1 - y) \cdot (D + 1)^{2} + y \cdot \text{max}(D - 1)^{2}$
 
 where:
 * $D$ is the cosine similarity of $\vec{E}_1$ and $\vec{E}_2$ from DistilBERT
